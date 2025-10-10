@@ -1,0 +1,80 @@
+{
+    "_comment": "Explanation:\n" +
+    "source_db: Defines the connection settings for the database where the raw weather data is stored.\n" +
+    "destination_db: Defines where the computed climate normals should be stored.\n" +
+    "period: Specifies the range of years over which the climate normals should be calculated.\n" +
+    "crossref: Maps each field in the destination table to an SQL expression that calculates the corresponding value from the source table.",
+    "source_db": {
+        "host": "your_source_db_host",
+        "user": "your_source_db_user",
+        "password": "your_source_db_password",
+        "database": "your_source_db_name",
+        "table": "weather_data"
+    },
+    "destination_db": {
+        "host": "your_destination_db_host",
+        "user": "your_destination_db_user",
+        "password": "your_destination_db_password",
+        "database": "your_destination_db_name",
+        "table": "climate_normals_<year_start>_<year_end>"
+    },
+    "period": {
+        "start_year": 1991,
+        "end_year": 2020
+    },
+    "crossref": {
+        "AvgTempAvg": "ROUND(AVG(AvgTemp), 1)",
+        "AvgTempHigh": "ROUND(AVG(MaxTemp), 1)",
+        "AvgTempLow": "ROUND(AVG(MinTemp), 1)",
+        "MinTempAvg": "ROUND(MIN(AvgTemp), 1)",
+        "MaxTempAvg": "ROUND(MAX(AvgTemp), 1)",
+        "MinTempHigh": "ROUND(MIN(MaxTemp), 1)",
+        "MaxTempHigh": "ROUND(MAX(MaxTemp), 1)",
+        "MinTempLow": "ROUND(MIN(MinTemp), 1)",
+        "MaxTempLow": "ROUND(MAX(MinTemp), 1)",
+        "AvgDewPointAvg": "ROUND(AVG(DewPoint), 1)",
+        "AvgDewPointHigh": "ROUND(AVG(MaxDewPoint), 1)",
+        "AvgDewPointLow": "ROUND(AVG(MinDewPoint), 1)",
+        "MinDewPointAvg": "ROUND(MIN(DewPoint), 1)",
+        "MaxDewPointAvg": "ROUND(MAX(DewPoint), 1)",
+        "MinDewPointHigh": "ROUND(MIN(MaxDewPoint), 1)",
+        "MaxDewPointHigh": "ROUND(MAX(MaxDewPoint), 1)",
+        "MinDewPointLow": "ROUND(MIN(MinDewPoint), 1)",
+        "MaxDewPointLow": "ROUND(MAX(MinDewPoint), 1)",
+        "AvgHumidityAvg": "ROUND(AVG(Humidity))",
+        "AvgHumidityHigh": "ROUND(AVG(MaxHumidity))",
+        "AvgHumidityLow": "ROUND(AVG(MinHumidity))",
+        "MinHumidityAvg": "MIN(Humidity)",
+        "MaxHumidityAvg": "MAX(Humidity)",
+        "MinHumidityHigh": "MIN(MaxHumidity)",
+        "MaxHumidityHigh": "MAX(MaxHumidity)",
+        "MinHumidityLow": "MIN(MinHumidity)",
+        "MaxHumidityLow": "MAX(MinHumidity)",
+        "AvgPressureAvg": "ROUND(AVG(Pressure), 1)",
+        "AvgPressureHigh": "ROUND(AVG(MaxPressure), 1)",
+        "AvgPressureLow": "ROUND(AVG(MinPressure), 1)",
+        "MinPressureAvg": "ROUND(MIN(Pressure), 1)",
+        "MaxPressureAvg": "ROUND(MAX(Pressure), 1)",
+        "MinPressureHigh": "ROUND(MIN(MaxPressure), 1)",
+        "MaxPressureHigh": "ROUND(MAX(MaxPressure), 1)",
+        "MinPressureLow": "ROUND(MIN(MinPressure), 1)",
+        "MaxPressureLow": "ROUND(MAX(MinPressure), 1)",
+        "AvgWindSpeedMax": "ROUND(AVG(WindSpeed), 1)",
+        "MaxWindSpeedMax": "ROUND(MAX(WindSpeed), 1)",
+        "AvgGustSpeedMax": "ROUND(AVG(GustSpeed), 1)",
+        "MaxGustSpeedMax": "ROUND(MAX(GustSpeed), 1)",
+        "AvgPrecipitationSum": "ROUND(SUM(Precipitation), 1)",
+        "MinPrecipitationSum": "ROUND(MIN(Precipitation), 1)",
+        "MaxPrecipitationSum": "ROUND(MAX(Precipitation), 1)",
+        "AvgSolarRadiation": "ROUND(AVG(SolarRadiation), 1)",
+        "MaxSolarRadiation": "ROUND(MAX(SolarRadiation), 1)",
+        "AvgUVIndex": "ROUND(AVG(UVIndex), 1)",
+        "MaxUVIndex": "ROUND(MAX(UVIndex), 1)",
+        "AvgWindChill": "ROUND(AVG(WindChill), 1)",
+        "MinWindChill": "ROUND(MIN(WindChill), 1)",
+        "MaxWindChill": "ROUND(MAX(WindChill), 1)",
+        "AvgHeatIndex": "ROUND(AVG(HeatIndex), 1)",
+        "MinHeatIndex": "ROUND(MIN(HeatIndex), 1)",
+        "MaxHeatIndex": "ROUND(MAX(HeatIndex), 1)"
+    }
+}
