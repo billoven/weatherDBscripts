@@ -9,14 +9,14 @@
 
 # Add library to trace execution steps
 # Functions available : "display_step_state", "execute_step", "display_duration"
-source ../../lib/trace_execution.sh
+source ../../common/lib/trace_execution.sh
 
 # Database configurations
-source_server="192.168.17.10"
+source_server="192.168.17.30"
 dest_server="192.168.17.20"
 backup_source_path="/home/pierre/backup/wconditions"
 backup_dest_path="/home/pierre/backup/wconditions"
-databases=("VillebonWeatherReport" "BethuneWeatherReport")
+databases=("VillebonWeatherReport" "BethuneWeatherReport" "cashcue" "ClimateNormals")
 dumpfiles=()
 
 check_databases_access() {
